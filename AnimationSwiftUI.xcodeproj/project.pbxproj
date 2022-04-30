@@ -11,6 +11,8 @@
 		A3987347281C13BA00CC27B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3987346281C13BA00CC27B8 /* ContentView.swift */; };
 		A3987349281C13BC00CC27B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3987348281C13BC00CC27B8 /* Assets.xcassets */; };
 		A398734C281C13BC00CC27B8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A398734B281C13BC00CC27B8 /* Preview Assets.xcassets */; };
+		A3DA037A281C25E500EB5FF9 /* SkyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA0379281C25E500EB5FF9 /* SkyView.swift */; };
+		A3DA037C281C375300EB5FF9 /* FoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DA037B281C375300EB5FF9 /* FoxView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		A3987346281C13BA00CC27B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A3987348281C13BC00CC27B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A398734B281C13BC00CC27B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A3DA0379281C25E500EB5FF9 /* SkyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyView.swift; sourceTree = "<group>"; };
+		A3DA037B281C375300EB5FF9 /* FoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoxView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				A3987344281C13BA00CC27B8 /* AnimationSwiftUIApp.swift */,
 				A3987346281C13BA00CC27B8 /* ContentView.swift */,
+				A3DA0379281C25E500EB5FF9 /* SkyView.swift */,
+				A3DA037B281C375300EB5FF9 /* FoxView.swift */,
 				A3987348281C13BC00CC27B8 /* Assets.xcassets */,
 				A398734A281C13BC00CC27B8 /* Preview Content */,
 			);
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3DA037C281C375300EB5FF9 /* FoxView.swift in Sources */,
+				A3DA037A281C25E500EB5FF9 /* SkyView.swift in Sources */,
 				A3987347281C13BA00CC27B8 /* ContentView.swift in Sources */,
 				A3987345281C13BA00CC27B8 /* AnimationSwiftUIApp.swift in Sources */,
 			);
