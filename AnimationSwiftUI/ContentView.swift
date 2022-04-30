@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    let grass = LinearGradient(colors: [.green, .mint], startPoint: .leading, endPoint: .trailing)
+
     
     let sky = LinearGradient(colors: [.blue, .cyan], startPoint: .top, endPoint: .bottom)
     
@@ -20,13 +20,18 @@ struct ContentView: View {
             
             VStack {
                 SkyView()
-                    .frame(width: 300, height: 300)
+                    .frame(width: 400, height: 400)
                 Spacer()
-                Ellipse()
-                    .fill(grass)
-                    .rotationEffect(.degrees(90))
-                    //.offset(x: 0, y: UIScreen.main.bounds.height / 2)
-                    .shadow(color: .black, radius: 10, x: 10, y: 10)
+                
+                
+                ZStack {
+                    
+                    BackgroundView()
+                    
+                    FoxView()
+                        .frame(width: 500, height: 500)
+                        .offset(x: 50, y: -50)
+                }
             }
         }
         .ignoresSafeArea()

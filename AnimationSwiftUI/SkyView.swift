@@ -16,38 +16,42 @@ struct SkyView: View {
         GeometryReader { geomety in
             let width = geomety.size.width
             let height = geomety.size.height
-            
+            let size = min(width, height)
             
             VStack {
                 
                 Image(systemName: "sun.max.fill")
+                    
                     .foregroundColor(.yellow)
-                    .frame(width: width / 4, height: height / 4)
+                    .frame(width: size / 4, height: size / 4)
                     .font(.system(size: 80))
                     .rotationEffect(.degrees(animation ? 360 : 0))
+                    .offset(x: 0, y: size * 0.1)
                     .onAppear {
                         withAnimation(.linear(duration: 2).repeatForever(autoreverses: false)) {
                             sun.toggle()
                         }
                     }
-                Spacer()
-                
                 Group {
-                    HStack{
                         Image(systemName: "cloud.fill")
-                            .modifier(CloudOffset(animate: $animation))
+                        .offset(x: size*0.3)
+                        .modifier(CloudOffset(animate: $animation, size: size))
+                            .scaleEffect(x: 1.8, y: 1.1)
                         Spacer()
                         Image(systemName: "cloud.fill")
-                            .modifier(CloudOffset(animate: $animation))
-                    }
+                        .offset(x: size*0.5)
+                        .modifier(CloudOffset(animate: $animation, size: size))
+                            .scaleEffect(x: 1.4, y: 1)
                 Spacer()
-                HStack{
                     Image(systemName: "cloud.fill")
-                        .modifier(CloudOffset(animate: $animation))
+                        .offset(x: size*0.1)
+                        .modifier(CloudOffset(animate: $animation, size: size))
+                        .scaleEffect(x: 1.5, y: 0.8)
                     Spacer()
                     Image(systemName: "cloud.fill")
-                        .modifier(CloudOffset(animate: $animation))
-                }
+                        .offset(x: size*0.35)
+                        .modifier(CloudOffset(animate: $animation, size: size))
+                        .scaleEffect(x: 1.4, y: 1)
                 }
                 .foregroundColor(.white)
                 .font(.system(size: 70))
@@ -62,30 +66,39 @@ struct SkyView: View {
 struct SkyView_Previews: PreviewProvider {
     static var previews: some View {
         SkyView()
-            .frame(width: 350, height: 350)
+            .frame(width: 350, height: 500)
             .background(.blue)
     }
 }
 
 struct CloudOffset: ViewModifier {
     @Binding var animate: Bool
+    let size: CGFloat
     func body(content: Content) -> some View {
-        let start = Int.random(in: 25...35)
-        let finish = Int.random(in: 25...35)
-        
-        let startX = CGFloat(Int.random(in: -start...finish))
-        let finishX = CGFloat(Int.random(in: -start...finish))
+
 
         
-        let duration = Double.random(in: 5...8)
-        let delay = Double.random(in: 0...1.2)
-        
+        let duration = rndDouble(a: 4, b: 8)
         content
-            .offset(x: animate ? startX : finishX)
+            .offset(x: animate ? rndInt().start : rndInt().finish)
             .onAppear{
-                withAnimation(.easeInOut(duration: duration).delay(delay).repeatForever(autoreverses: true)) {
+                withAnimation(.linear(duration: duration).repeatForever(autoreverses: true)) {
                     animate.toggle()
                 }
             }
+    }
+    
+    private func rndDouble(a: Double, b: Double) -> Double {
+        Double.random(in: a...b)
+    }
+    private func rndInt() -> (start: CGFloat, finish: CGFloat) {
+        
+        let start = CGFloat.random(in: 0...size / 2)
+        let finish = CGFloat.random(in: 0...size / 2)
+        
+        let startX = CGFloat.random(in: -start...finish)
+        let finishX = CGFloat.random(in: -start...finish)
+        
+        return (startX, finishX)
     }
 }
