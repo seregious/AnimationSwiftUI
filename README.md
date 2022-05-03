@@ -1,3 +1,3 @@
 # AnimationSwiftUI
 Educational project on working with animation in SwiftUI
-![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Alt Text](https://github.com/seregious/AnimationSwiftUI/blob/main/SwiftUI%20animation%20preview.gif)
